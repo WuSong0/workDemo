@@ -5,6 +5,7 @@ import cn.dao.TestMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,5 +19,8 @@ public class TestServiceImpl implements TestService {
 
     public Map selectUser(Map map) {
         return  testMapper.selectUser(map);
+    }
+    public List selectStu() {
+        return  testMapper.selectStu();
     }
 }

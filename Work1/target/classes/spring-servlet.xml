@@ -10,17 +10,21 @@
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-2.5.xsd
-           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop
            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
-           http://www.springframework.org/schema/mvc 
+           http://www.springframework.org/schema/mvc
            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
 	<!-- 使spring扫描包下的所有类，让标注spring注解的类生效 -->
 	<context:component-scan base-package="cn"/>
     <mvc:annotation-driven/>
-    
+
+	<context:annotation-config />
+	<mvc:default-servlet-handler />
+	<mvc:resources mapping="/swagger/**" location="/swagger/"/>
+	<bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
 
 	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
